@@ -47,7 +47,8 @@ class Main
   
   void DrawAnd(float x, float y)
   {
-    fill(255, 0, 0);
+    noStroke();
+    fill(#FFFFFF);
     rect(x, y, 50, 700);
   }
 }
