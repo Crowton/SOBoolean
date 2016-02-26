@@ -20,7 +20,8 @@ class Main
       {
         //And
         case(0):
-        rect(x, y, 50, 50);
+          DrawAnd(x, y);
+          break;
       }
     }
   }
@@ -40,5 +41,13 @@ class Main
     textAlign(CENTER, CENTER);
     textSize(20);
     text("Gates:", w/2, 20);
+  }
+  
+  
+  
+  void DrawAnd(float x, float y)
+  {
+    fill(255, 0, 0);
+    rect(x, y, 50, 700);
   }
 }
