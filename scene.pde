@@ -1,6 +1,7 @@
 class GUI
 {
     PImage[] gateImg = new PImage[5];
+    Gate SelectedGate = null;
     
     GUI()
     {
@@ -16,6 +17,8 @@ class GUI
         background(0);
 
         Gates();
+        if(SelectedGate != null)
+            SelectedGate.Draw(this);
 
         Menu();
     }

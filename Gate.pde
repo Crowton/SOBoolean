@@ -19,6 +19,25 @@ class Gate
     {
         input[in] = from;
     }
+    
+    void Draw(GUI gui)
+    {
+        switch (type)
+        {
+            //And
+            case(0):
+                gui.DrawAnd(x,y);
+            //Or
+            case(1):
+                gui.DrawOr(x,y);
+            //Xor
+            case(2):
+                gui.DrawXor(x,y);
+            //Not
+            case(3):
+                gui.DrawNot(x,y);
+        }
+    }
 
     boolean ReturnOut()
     {

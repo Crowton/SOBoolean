@@ -16,3 +16,24 @@ void draw()
     // Draw GUI
     gui.Draw();
 }
+
+void mousePressed()
+{
+    if(gui.SelectedGate == null)
+    {
+        gui.SelectedGate = new Gate(mouseX, mouseY, 0, true);
+    }
+    else
+    {
+        gates.add(gui.SelectedGate);
+        gui.SelectedGate = null;
+    }
+}
+void mouseMoved()
+{
+    if(gui.SelectedGate != null)
+    {
+        gui.SelectedGate.x = mouseX;
+        gui.SelectedGate.y = mouseY;
+    }
+}
