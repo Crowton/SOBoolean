@@ -28,23 +28,23 @@ class Gate
         {
             //And
             case(0):
-                return (gates[input[0]].ReturnOut() & gates[input[1]].ReturnOut());
+                return (gates.get(input[0]).ReturnOut() & gates.get(input[1]).ReturnOut());
 
             //Or
             case(1):
-                return (gates[input[0]].ReturnOut() | gates[input[1]].ReturnOut());
+                return (gates.get(input[0]).ReturnOut() | gates.get(input[1]).ReturnOut());
 
             //Xor
             case(2):
                 return (
-                    (gates[input[0]].ReturnOut() | gates[input[1]].ReturnOut())
+                    (gates.get(input[0]).ReturnOut() | gates.get(input[1]).ReturnOut())
                     &
-                    !(gates[input[0]].ReturnOut() & gates[input[1]].ReturnOut())
+                    !(gates.get(input[0]).ReturnOut() & gates.get(input[1]).ReturnOut())
                     );
 
             //Not
             case(3):
-                return (!gates[input[0]].ReturnOut());
+                return (!gates.get(input[0]).ReturnOut());
 
             //Main Input
             case(4):
