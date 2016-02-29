@@ -15,12 +15,10 @@ class Gate
         value = val;
     }
 
-
     void SetInput(int in, int from)
     {
         input[in] = from;
     }
-
 
     boolean ReturnOut()
     {

@@ -9,7 +9,6 @@ class GUI
         Menu();
     }
 
-
     void Gates()
     {
         for (int i = 0; i < gates.size(); i++)
@@ -42,8 +41,6 @@ class GUI
         textSize(20);
         text("Gates:", w/2, 20);
     }
-
-
 
     void DrawAnd(float x, float y)
     {
