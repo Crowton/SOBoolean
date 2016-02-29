@@ -12,16 +12,16 @@ class GUI
 
     void Gates()
     {
-        for (int i = 0; i < gates.length; i++)
+        for (int i = 0; i < gates.size(); i++)
         {
-            float x = gates[i].x;
-            float y = gates[i].y;
-            switch (gates[i].type)
+            float x = gates.get(i).x;
+            float y = gates.get(i).y;
+            switch (gates.get(i).type)
             {
                 //And
                 case(0):
-                DrawAnd(x, y);
-                break;
+                    DrawAnd(x, y);
+                    break;
             }
         }
     }
