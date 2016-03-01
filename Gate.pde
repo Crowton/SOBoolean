@@ -19,23 +19,23 @@ class Gate
     {
         input[in] = from;
     }
-    
+
     void Draw(GUI gui)
     {
         switch (type)
         {
             //And
             case(0):
-                gui.DrawAnd(x,y);
+            gui.DrawAnd(x, y);
             //Or
             case(1):
-                gui.DrawOr(x,y);
+            gui.DrawOr(x, y);
             //Xor
             case(2):
-                gui.DrawXor(x,y);
+            gui.DrawXor(x, y);
             //Not
             case(3):
-                gui.DrawNot(x,y);
+            gui.DrawNot(x, y);
         }
     }
 
@@ -45,27 +45,27 @@ class Gate
         {
             //And
             case(0):
-                return (gates.get(input[0]).ReturnOut() & gates.get(input[1]).ReturnOut());
+            return (gates.get(input[0]).ReturnOut() & gates.get(input[1]).ReturnOut());
 
             //Or
             case(1):
-                return (gates.get(input[0]).ReturnOut() | gates.get(input[1]).ReturnOut());
+            return (gates.get(input[0]).ReturnOut() | gates.get(input[1]).ReturnOut());
 
             //Xor
             case(2):
-                return (
-                    (gates.get(input[0]).ReturnOut() | gates.get(input[1]).ReturnOut())
-                    &
-                    !(gates.get(input[0]).ReturnOut() & gates.get(input[1]).ReturnOut())
-                    );
+            return (
+                (gates.get(input[0]).ReturnOut() | gates.get(input[1]).ReturnOut())
+                &
+                !(gates.get(input[0]).ReturnOut() & gates.get(input[1]).ReturnOut())
+                );
 
             //Not
             case(3):
-                return (!gates.get(input[0]).ReturnOut());
+            return (!gates.get(input[0]).ReturnOut());
 
             //Main Input
             case(4):
-                return value;
+            return value;
 
         default:
             return false;
