@@ -7,6 +7,7 @@ class Gate
 
     //Where the input from in array
     int[] input = {0, 0};
+    ArrayList<PVector> connections = new ArrayList<PVector>();
 
     Gate(float xIn, float yIn, int typeIn, boolean val)
     {

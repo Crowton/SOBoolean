@@ -42,6 +42,7 @@ void mousePressed()
         
         // Create Gate
         gui.SelectedGate = new Gate(mouseX - 35, mouseY - 25, type, true);
+        return;
     } else
     {
         for(Gate g : gates)
@@ -52,8 +53,21 @@ void mousePressed()
         gui.SelectedGate = null;
     }
     
+    /*
     // Handle gate connections
-    
+    for(Gate g : gates)
+    {
+        PVector node = new PVector(g.x + 25, g.y + 25); // 14 wide
+        PVector node1 = new PVector (g.x - 15, g.y + 5); // 14 wide
+        PVector node2 = new PVector (g.x - 15, g.y + 45); // 14 wide
+        
+        if(dist(node.x, node.y, mouseX, mouseY) > 14 * 2)
+        {
+            gui.currentNodeGate = g;
+            gui.currentNodePoint = node;
+        }
+    }
+    */
 }
 void mouseMoved()
 {

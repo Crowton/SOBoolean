@@ -2,14 +2,21 @@ class GUI
 {
     PImage[] gateImg = new PImage[5];
     Gate SelectedGate = null;
+    PVector currentNodePoint = null;
+    Gate currentNodeGate;
 
     void Draw()
     {
         background(0);
 
         // Draw gates
-        for(Gate g : gates)
-            g.Draw(this);
+        if(gates != null)
+            synchronized (gates)
+            {
+                for(Gate g : gates)
+                    g.Draw(this);
+            }
+            
         if (SelectedGate != null)
             SelectedGate.Draw(this);
             
@@ -33,7 +40,15 @@ class GUI
             if(mouseX <= 180 + 50 || mouseX >= width - 50 || mouseY <= 50 || mouseY >= height - 50)
                 stroke(#FF0000);
             ellipse(mouseX, mouseY, 75 * 2, 75 * 2);
-        }   
+        }
+        
+        // Draw current node thingy
+        if(currentNodePoint != null)
+        {
+            stroke(255);
+            strokeWeight(2);
+            line(currentNodePoint.x, currentNodePoint.y, mouseX, mouseY);
+        }
             
         // Draw Menu
         Menu();
