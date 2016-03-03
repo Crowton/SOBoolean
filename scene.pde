@@ -19,7 +19,32 @@ class GUI
         Gates();
         if (SelectedGate != null)
             SelectedGate.Draw(this);
-
+            
+        
+    
+        // Draw placement circle
+        if(SelectedGate != null)
+        {
+            // Check distance to nearest other gates
+            for(Gate g : gates)
+            {
+                if(dist(mouseX, mouseY, g.x + 35, g.y + 25) < 75)
+                {
+                    noStroke();
+                    fill(255, 0, 0, 100);
+                    ellipse(g.x + 35, g.y + 25, 75 * 2, 75 * 2);                
+                    stroke(#FF0000, 100);
+                }
+            }
+            
+            noFill();
+            stroke(#FFFFFF);
+            if(mouseX <= 180 + 50 || mouseX >= width - 50 || mouseY <= 50 || mouseY >= height - 50)
+                stroke(#FF0000);
+            ellipse(mouseX, mouseY, 75 * 2, 75 * 2);
+        }   
+            
+        // Draw Menu
         Menu();
     }
 
@@ -31,10 +56,18 @@ class GUI
             float y = gates.get(i).y;
             switch (gates.get(i).type)
             {
-                //And
-                case(0):
+            //And
+            case(0):
                 DrawAnd(x, y);
-                break;
+            //Or
+            case(1):
+                DrawOr(x, y);
+            //Xor
+            case(2):
+                DrawXor(x, y);
+            //Not
+            case(3):
+                DrawNot(x, y);
             }
         }
     }
@@ -68,6 +101,12 @@ class GUI
         DrawOr(ww, h*1.5 + 50 + 40);
         DrawXor(ww, h*2.5 + 100 + 40);
         DrawNot(ww, h*3.5 + 150 + 40);
+        
+        textAlign(CENTER, BOTTOM);
+        text("AND Gate", 180 / 2, h * 0.5 + 30);
+        text("OR  Gate", 180 / 2, h * 1.5 + 50 + 30);
+        text("XOR Gate", 180 / 2, h * 2.5 + 100 + 30);
+        text("NOT Gate", 180 / 2, h * 3.5 + 150 + 30);
     }
 
     void DrawAnd(float x, float y)

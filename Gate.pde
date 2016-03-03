@@ -26,16 +26,16 @@ class Gate
         {
             //And
             case(0):
-            gui.DrawAnd(x, y);
+                gui.DrawAnd(x, y);
             //Or
             case(1):
-            gui.DrawOr(x, y);
+                gui.DrawOr(x, y);
             //Xor
             case(2):
-            gui.DrawXor(x, y);
+                gui.DrawXor(x, y);
             //Not
             case(3):
-            gui.DrawNot(x, y);
+                gui.DrawNot(x, y);
         }
     }
 
