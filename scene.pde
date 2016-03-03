@@ -3,25 +3,16 @@ class GUI
     PImage[] gateImg = new PImage[5];
     Gate SelectedGate = null;
 
-    GUI()
-    {
-        for (int i = 0; i < gateImg.length; i++)
-        {
-            //gateImg[i] = loadImage("texture/gate" + i + ".png");
-        }
-    }
-
-
     void Draw()
     {
         background(0);
 
-        Gates();
+        // Draw gates
+        for(Gate g : gates)
+            g.Draw(this);
         if (SelectedGate != null)
             SelectedGate.Draw(this);
             
-        
-    
         // Draw placement circle
         if(SelectedGate != null)
         {
@@ -48,30 +39,6 @@ class GUI
         Menu();
     }
 
-    void Gates()
-    {
-        for (int i = 0; i < gates.size(); i++)
-        {
-            float x = gates.get(i).x;
-            float y = gates.get(i).y;
-            switch (gates.get(i).type)
-            {
-            //And
-            case(0):
-                DrawAnd(x, y);
-            //Or
-            case(1):
-                DrawOr(x, y);
-            //Xor
-            case(2):
-                DrawXor(x, y);
-            //Not
-            case(3):
-                DrawNot(x, y);
-            }
-        }
-    }
-
     void Menu()
     {
         int w = 180;
@@ -79,13 +46,13 @@ class GUI
         fill(50);
         rect(0, 0, w, height);
 
-        stroke(150);
-        strokeWeight(3);
+        stroke(255);
+        strokeWeight(1);
         line(w, 0, w, height);
 
         fill(255);
         textAlign(CENTER, CENTER);
-        textSize(20);
+        textSize(26);
         text("Gates:", w/2, 20);
 
         //Draw gates
@@ -97,48 +64,50 @@ class GUI
         int h = (height-40 - 50*4) / 4;
         int ww = (w - 75) / 2;
 
-        DrawAnd(ww, h*0.5 + 40);
-        DrawOr(ww, h*1.5 + 50 + 40);
-        DrawXor(ww, h*2.5 + 100 + 40);
-        DrawNot(ww, h*3.5 + 150 + 40);
+        DrawAnd(ww, h*0.5 + 40, #FF5555);
+        DrawOr(ww, h*1.5 + 50 + 40, #55FF55);
+        DrawXor(ww, h*2.5 + 100 + 40, #5555FF);
+        DrawNot(ww, h*3.5 + 150 + 40, #FFFF55);
         
         textAlign(CENTER, BOTTOM);
+        textSize(18);
+        fill(#FFFFFF);
         text("AND Gate", 180 / 2, h * 0.5 + 30);
         text("OR  Gate", 180 / 2, h * 1.5 + 50 + 30);
         text("XOR Gate", 180 / 2, h * 2.5 + 100 + 30);
         text("NOT Gate", 180 / 2, h * 3.5 + 150 + 30);
     }
 
-    void DrawAnd(float x, float y)
+    void DrawAnd(float x, float y, color col)
     {
         noStroke();
-        fill(#FFFFFF);
+        fill(col);
         rect(x, y, 50, 50);
         arc(x+50, y+25, 50, 50, -TAU/4, TAU/4);
     }
 
-    void DrawOr(float x, float y)
+    void DrawOr(float x, float y, color col)
     {
         noStroke();
-        fill(#FFFFFF);
+        fill(col);
         arc(x, y+25, 150, 50, -TAU/4, TAU/4);
     }
 
-    void DrawXor(float x, float y)
+    void DrawXor(float x, float y, color col)
     {
         noStroke();
-        fill(#FFFFFF);
+        fill(col);
         arc(x+7, y+25, 150-7*2, 50, -TAU/4, TAU/4);
 
-        stroke(#FFFFFF);
+        stroke(col);
         strokeWeight(2);
         line(x+1, y+1, x+1, y+50-2);
     }
 
-    void DrawNot(float x, float y)
+    void DrawNot(float x, float y, color col)
     {
         noStroke();
-        fill(#FFFFFF);
+        fill(col);
         triangle(x, y, x+59, y+25, x, y+50);
         ellipse(x+66, y+25, 16, 16);
     }

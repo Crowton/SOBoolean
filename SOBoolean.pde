@@ -21,7 +21,8 @@ void draw()
 
 void mousePressed()
 {
-    if (gui.SelectedGate == null)
+    // Handle selectedgate & gate placement
+    if (gui.SelectedGate == null && mouseX <= 180)
     {
         int type = -1;
 
@@ -50,6 +51,9 @@ void mousePressed()
         gates.add(gui.SelectedGate);
         gui.SelectedGate = null;
     }
+    
+    // Handle gate connections
+    
 }
 void mouseMoved()
 {
