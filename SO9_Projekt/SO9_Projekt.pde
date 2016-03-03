@@ -93,7 +93,7 @@ void mouseClicked()
     }
     
     // Check for clicking on output nodes
-    if(CurrentlyPlacing == null && CurrentOutput == null)
+    if(CurrentlyPlacing == null && CurrentOutput == null && mouseButton == LEFT)
     {
         for(LogicGate g : Gates)
         {
@@ -126,6 +126,23 @@ void mouseClicked()
         }
     }
     
+//<<<<<<< HEAD
+//=======
+    // Check if gate should be removed
+    if(mouseButton == RIGHT)
+    {
+        for(LogicGate g : Gates)
+        {
+            if (dist(mouseX, mouseY, g.GetCenter().x, g.GetCenter().y) < 25)
+            {
+                Gates.remove(g);
+                
+                return;
+            }
+        }
+    }
+    
+//>>>>>>> origin/master
     // Check for clicking on togglegate
     for(LogicGate g : Gates)
     {
@@ -134,8 +151,11 @@ void mouseClicked()
             if((ToggleGate)g != null && IsWithin(mouseX, mouseY, g.Position.x, g.Position.y, 50, 50))
                 ((ToggleGate)g).Value = !((ToggleGate)g).Value;
         }
-        catch(Exception e) {println("HERE");}
+//<<<<<<< HEAD
+        catch(Exception e) {println("ERROR");}
         //return;
+//=======
+//>>>>>>> origin/master
     }
 }
 void mouseMoved()
@@ -145,5 +165,14 @@ void mouseMoved()
         CurrentlyPlacing.Position.x = mouseX - 35;
         CurrentlyPlacing.Position.y = mouseY - 25;
         return;
+    }
+}
+void keyPressed()
+{
+    if(key == 'r')
+    {
+        Gates = new ArrayList<LogicGate>();
+        CurrentlyPlacing = null;
+        CurrentOutput = null;
     }
 }
