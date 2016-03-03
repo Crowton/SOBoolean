@@ -38,12 +38,7 @@ class Gate
         }
         
         if(type == 3)
-            input = new int[] { 0 };
-    }
-
-    void SetInput(int in, int from)
-    {
-        input[in] = from;
+            input = new int[] { -1 };
     }
 
     void Draw(GUI gui)
