@@ -1,0 +1,8 @@
+/Users/Frederiik/Documents/SOBoolean/C# IS SUPERIOR/Simulator/Simulator/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/Frederiik/Documents/SOBoolean/C# IS SUPERIOR/Simulator/Simulator/bin/Debug/Simulator.exe.mdb
+/Users/Frederiik/Documents/SOBoolean/C# IS SUPERIOR/Simulator/Simulator/bin/Debug/Simulator.exe
+/Users/Frederiik/Documents/SOBoolean/C# IS SUPERIOR/Simulator/Simulator/obj/Debug/Simulator.exe
+/Users/Frederiik/Documents/SOBoolean/C# IS SUPERIOR/Simulator/Simulator/obj/Debug/Simulator.exe.mdb
+/Users/Frederiik/Documents/SOBoolean/C# IS SUPERIOR/Simulator/Simulator/bin/Debug/sfmlnet-audio-2.dll
+/Users/Frederiik/Documents/SOBoolean/C# IS SUPERIOR/Simulator/Simulator/bin/Debug/sfmlnet-graphics-2.dll
+/Users/Frederiik/Documents/SOBoolean/C# IS SUPERIOR/Simulator/Simulator/bin/Debug/sfmlnet-window-2.dll

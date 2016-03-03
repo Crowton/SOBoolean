@@ -6,8 +6,8 @@ GUI gui = new GUI();
 void setup()
 {
     // Set Size & Background
-    //size(1280, 800);
-    fullScreen();
+    size(800, 800);
+    //fullScreen();
     println("Width: " + width + " Height: " + height);
     background(0);
 }
@@ -43,7 +43,7 @@ void mousePressed()
         // Create Gate
         gui.SelectedGate = new Gate(mouseX - 35, mouseY - 25, type, true);
         return;
-    } else
+    } else if (gui.SelectedGate != null)
     {
         for(Gate g : gates)
             if(dist(mouseX, mouseY, g.x + 35, g.y + 25) < 75 || mouseX <= 180 + 50 || mouseX >= width - 50 || mouseY <= 50 || mouseY >= height - 50)
@@ -51,9 +51,9 @@ void mousePressed()
         
         gates.add(gui.SelectedGate);
         gui.SelectedGate = null;
+        return;
     }
     
-    /*
     // Handle gate connections
     for(Gate g : gates)
     {
@@ -61,13 +61,29 @@ void mousePressed()
         PVector node1 = new PVector (g.x - 15, g.y + 5); // 14 wide
         PVector node2 = new PVector (g.x - 15, g.y + 45); // 14 wide
         
-        if(dist(node.x, node.y, mouseX, mouseY) > 14 * 2)
+        if(dist(node.x, node.y, mouseX, mouseY) < 14 * 2 && gui.currentNodePoint == null && g != gui.currentNodeGate)
         {
+            println("place start " + gui.currentNodePoint);
             gui.currentNodeGate = g;
             gui.currentNodePoint = node;
         }
+        else if(dist(node1.x, node1.y, mouseX, mouseY) < 14 * 2 && g != gui.currentNodeGate && gui.currentNodePoint != null)
+        {
+            println("place end");
+            gui.currentNodeGate.connections.add(node1);
+            gui.currentNodeGate = null;
+            gui.currentNodePoint = null;
+            return;
+        }
+        else if(dist(node2.x, node2.y, mouseX, mouseY) < 14 * 2 && g != gui.currentNodeGate && gui.currentNodePoint != null)
+        {
+            println("place end");
+            gui.currentNodeGate.connections.add(node2);
+            gui.currentNodeGate = null;
+            gui.currentNodePoint = null;
+            return;
+        }
     }
-    */
 }
 void mouseMoved()
 {

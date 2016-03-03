@@ -115,6 +115,18 @@ class Gate
             stroke(input[1] == 1 ? #00FF00 : #FF0000);
             line(x - 15, y + 45, x + 25, y + 25);
         }
+        
+        fill(255);
+        textSize(12);
+        text(str(connections.size()), x - 15, y + 75);
+        
+        // Draw connections
+        for(PVector conn : connections)
+        {
+            stroke(#FFFFFF);
+            strokeWeight(2);
+            line(x + 25, y + 25, conn.x, conn.y);
+        }
     }
 
     boolean ReturnOut()
