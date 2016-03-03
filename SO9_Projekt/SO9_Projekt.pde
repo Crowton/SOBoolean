@@ -79,11 +79,17 @@ void mouseClicked()
         return;
     }
     
-    // Check if inside GUI area, if yea then let GUI handle mouseclick
+    // Check if inside GUI area, if yes then let GUI handle mouseclick
     if(mouseX >= 0 &&  mouseX <= MenuWidth)
     {
         g.HandleClick();
         return;
+    }
+    
+    // Reset
+    if (mouseX >= width - 130 && mouseX <= width - 30 && mouseY >= height - 80 && mouseY <= height - 30)
+    {
+        Gates = new ArrayList<LogicGate>();
     }
     
     // Check for clicking on output nodes
@@ -120,8 +126,6 @@ void mouseClicked()
         }
     }
     
-        // Check if gate should be removed
-    
     // Check for clicking on togglegate
     for(LogicGate g : Gates)
     {
@@ -130,9 +134,9 @@ void mouseClicked()
             if((ToggleGate)g != null && IsWithin(mouseX, mouseY, g.Position.x, g.Position.y, 50, 50))
                 ((ToggleGate)g).Value = !((ToggleGate)g).Value;
         }
-        catch(Exception e) {}
-        return;
-    }    
+        catch(Exception e) {println("HERE");}
+        //return;
+    }
 }
 void mouseMoved()
 {

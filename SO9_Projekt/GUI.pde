@@ -79,6 +79,15 @@ public class GUI
         noStroke();
         fill(ToggleColor);
         rect(x - 25, y, 75, 75);
+        
+        // Reset button
+        fill(25);
+        stroke(255);
+        strokeWeight(2);
+        rect(width - 130, height - 80, 100, 50);
+        fill(255);
+        textAlign(CENTER, CENTER);
+        text("Reset", width - 80, height - 58);
     }
     void HandleClick()
     {

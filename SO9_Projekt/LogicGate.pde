@@ -93,7 +93,7 @@ public class AndGate extends LogicGate
         
         Node input1 = Inputs.get(0);
         Node input2 = Inputs.get(1);
-        return input1.GetOutput() == input2.GetOutput();
+        return input1.GetOutput() && input2.GetOutput();
     }
     public boolean AddInput(Node in)
     {
