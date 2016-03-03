@@ -69,6 +69,12 @@ void mousePressed()
             gui.currentNodePoint = node;
             gui.currentGateIndex = i;
         }
+        else if(dist(node.x, node.y, mouseX, mouseY) < 14 * 2)
+        {
+            println("place stopped " + gui.currentNodePoint);
+            gui.currentNodeGate = null;
+            gui.currentNodePoint = null;
+        }
         else if(dist(node1.x, node1.y, mouseX, mouseY) < 14 * 2 && g != gui.currentNodeGate && gui.currentNodePoint != null)
         {
             println("place end");
