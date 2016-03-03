@@ -4,6 +4,7 @@ class GUI
     Gate SelectedGate = null;
     PVector currentNodePoint = null;
     Gate currentNodeGate;
+    int currentGateIndex;
 
     void Draw()
     {
@@ -15,6 +16,9 @@ class GUI
             {
                 for(Gate g : gates)
                     g.Draw(this);
+                
+                for(Gate g : gates)
+                    g.DrawInputLines();
             }
             
         if (SelectedGate != null)

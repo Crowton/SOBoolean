@@ -55,6 +55,7 @@ void mousePressed()
     }
     
     // Handle gate connections
+    int i = 0;
     for(Gate g : gates)
     {
         PVector node = new PVector(g.x + 25, g.y + 25); // 14 wide
@@ -66,11 +67,12 @@ void mousePressed()
             println("place start " + gui.currentNodePoint);
             gui.currentNodeGate = g;
             gui.currentNodePoint = node;
+            gui.currentGateIndex = i;
         }
         else if(dist(node1.x, node1.y, mouseX, mouseY) < 14 * 2 && g != gui.currentNodeGate && gui.currentNodePoint != null)
         {
             println("place end");
-            gui.currentNodeGate.connections.add(node1);
+            g.input[0] = gui.currentGateIndex;
             gui.currentNodeGate = null;
             gui.currentNodePoint = null;
             return;
@@ -78,11 +80,13 @@ void mousePressed()
         else if(dist(node2.x, node2.y, mouseX, mouseY) < 14 * 2 && g != gui.currentNodeGate && gui.currentNodePoint != null)
         {
             println("place end");
-            gui.currentNodeGate.connections.add(node2);
+            g.input[1] = gui.currentGateIndex;
             gui.currentNodeGate = null;
             gui.currentNodePoint = null;
             return;
         }
+        
+        i++;
     }
 }
 void mouseMoved()

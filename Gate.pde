@@ -6,8 +6,7 @@ class Gate
     color col = #FFFFFF;
 
     //Where the input from in array
-    int[] input = {0, 0};
-    ArrayList<PVector> connections = new ArrayList<PVector>();
+    int[] input = {-1, -1};
 
     Gate(float xIn, float yIn, int typeIn, boolean val)
     {
@@ -115,17 +114,28 @@ class Gate
             stroke(input[1] == 1 ? #00FF00 : #FF0000);
             line(x - 15, y + 45, x + 25, y + 25);
         }
-        
-        fill(255);
-        textSize(12);
-        text(str(connections.size()), x - 15, y + 75);
-        
+    }
+    
+    void DrawInputLines()
+    {
         // Draw connections
-        for(PVector conn : connections)
+        if(input.length >= 1)
         {
-            stroke(#FFFFFF);
-            strokeWeight(2);
-            line(x + 25, y + 25, conn.x, conn.y);
+            if (input[0] != -1)
+            {
+                stroke(#FFFFFF);
+                strokeWeight(2);
+                line(gates.get(input[0]).x + 25, gates.get(input[0]).y + 25, x -15, y + 5);
+            }
+        }
+        if(input.length >= 2)
+        {
+            if (input[1] != -1)
+            {
+                stroke(#FFFFFF);
+                strokeWeight(2);
+                line(gates.get(input[1]).x + 25, gates.get(input[1]).y + 25, x -15, y + 45);
+            }
         }
     }
 
