@@ -1,35 +1,20 @@
-﻿using System;
-using SFML.Window;
-using SFML.Graphics;
+﻿using Zendikar.Game.Graphics;
 
 namespace Simulator
 {
-    class Program
-     {
-         static void Main(string[] args)
-         {
-             MySFMLProgram app = new MySFMLProgram();
-             app.StartSFMLProgram();
-         }
-     }
-     class MySFMLProgram
-     {
-         RenderWindow _window;
-         public void StartSFMLProgram()
-         {
-             _window = new RenderWindow(new VideoMode(800, 600), "SFML window");
-             _window.SetVisible(true);
-             _window.Closed += new EventHandler(OnClosed);
-             while (_window.IsOpen())
-             {
-                 _window.DispatchEvents();
-                 _window.Clear(Color.Red);
-                 _window.Display();
-             }
-         }
-         void OnClosed(object sender, EventArgs e)
-         {
-             _window.Close();
-         }
-     }
+    public static class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Create new game object
+            var game = new Simulator(new VideoMode(1280, 720), "Tower Defense", Styles.Titlebar | Styles.Close)
+            {
+                FramerateLimit = 120
+            };
+
+            // Run game
+            //game.Closed += (sender, eventArgs) => game.Close();
+            game.Start();
+        }
+    }
 }

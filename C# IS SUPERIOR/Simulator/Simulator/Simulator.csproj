@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>55FBAE16-B8F7-47CF-805F-04E534CD1894</ProjectGuid>
+    <ProjectGuid>{55FBAE16-B8F7-47CF-805F-04E534CD1894}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simulator</RootNamespace>
@@ -38,6 +38,9 @@
     <Reference Include="sfmlnet-graphics-2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\SFML.Net.2.1.5\lib\sfmlnet-graphics-2.dll</HintPath>
     </Reference>
+    <Reference Include="sfmlnet-system-2">
+      <HintPath>..\..\..\..\..\Repositories\Zendikar\Solution\Libraries\Zendikar.Game\bin\Debug\sfmlnet-system-2.dll</HintPath>
+    </Reference>
     <Reference Include="sfmlnet-window-2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\SFML.Net.2.1.5\lib\sfmlnet-window-2.dll</HintPath>
     </Reference>
@@ -47,12 +50,42 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Zendikar.Extension">
+      <HintPath>..\DLLs\Zendikar.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="Zendikar.Game">
+      <HintPath>..\DLLs\Zendikar.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="Zendikar.IO">
+      <HintPath>..\DLLs\Zendikar.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Zendikar.Logging">
+      <HintPath>..\DLLs\Zendikar.Logging.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulator.cs" />
+    <Compile Include="States\IngameState.cs" />
+    <Compile Include="States\TitleState.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Sounds\UI\click1.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\UI\click2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\UI\click3.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\UI\click4.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sounds\UI\click5.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
