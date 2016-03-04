@@ -88,6 +88,22 @@ public class GUI
         fill(255);
         textAlign(CENTER, CENTER);
         text("Reset", width - 80, height - 58);
+        
+        // George Boole Info
+        fill(25);
+        stroke(255);
+        strokeWeight(2);
+        rect(width - 180, 30, 150, 250);
+        fill(255);
+        textAlign(CENTER, CENTER);
+        text("George Boole:", width - 105, 45);
+        line(width - 170, 60, width - 40, 60);
+        textSize(14);
+        textAlign(CENTER, TOP);
+        text(
+            "2. november 1815 8. december 1864\n" +
+            "var en engelsk filosof og matematiker, mest kendt for sin opfindelse og udvikling af Boolsk algebra."
+        , width - 170, 75, 130, 255);
     }
     void HandleClick()
     {
