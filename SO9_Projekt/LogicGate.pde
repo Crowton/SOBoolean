@@ -23,11 +23,23 @@ public abstract class LogicGate
     {
         ArrayList<Node> buffer = new ArrayList<Node>();
         buffer.addAll(Inputs);
-        
-        for(Node input : buffer)
+        println("Inputs: " + Inputs.size());
+        synchronized(buffer)
         {
-            if(input != null && input._parent != null)
-                buffer.addAll(input._parent.GetInputChain());
+            try
+            {
+                ArrayList<Node> buffer2 = new ArrayList<Node>();
+                for(Node input : buffer)
+                {
+                    if(input != null && input._parent != null)
+                        buffer2.addAll(input._parent.GetInputChain());
+                }
+                buffer.addAll(buffer2);
+            }
+            catch(Exception up)
+            {
+                println(up);
+            }
         }
         
         return buffer;

@@ -118,17 +118,18 @@ void mouseClicked()
         {
             if(g.Output.Clicked(mouseX, mouseY))
             {
-                /*
                 ArrayList<Node>  chain = g.GetInputChain(); 
                 println("Input chain with " + chain.size() + " nodes");
                 // Check for circle of death
-                for(Node n : chain)
+                synchronized(chain)
                 {
-                    println(n);
-                    if(n == CurrentOutput)
-                        return;
+                    for(Node n : chain)
+                    {
+                        println(n);
+                        if(n == CurrentOutput)
+                            return;
+                    }
                 }
-                */
                 
                 g.AddInput(CurrentOutput);
                 CurrentOutput = null;
@@ -138,8 +139,6 @@ void mouseClicked()
         }
     }
     
-//<<<<<<< HEAD
-//=======
     // Check if gate should be removed
     if(mouseButton == RIGHT)
     {
@@ -154,7 +153,6 @@ void mouseClicked()
         }
     }
     
-//>>>>>>> origin/master
     // Check for clicking on togglegate
     for(LogicGate g : Gates)
     {
@@ -163,11 +161,7 @@ void mouseClicked()
             if((ToggleGate)g != null && IsWithin(mouseX, mouseY, g.Position.x, g.Position.y, 50, 50))
                 ((ToggleGate)g).Value = !((ToggleGate)g).Value;
         }
-//<<<<<<< HEAD
-        catch(Exception e) {println("ERROR");}
-        //return;
-//=======
-//>>>>>>> origin/master
+        catch(Exception e) {}
     }
 }
 void mouseMoved()
