@@ -138,8 +138,6 @@ void mouseClicked()
         }
     }
     
-//<<<<<<< HEAD
-//=======
     // Check if gate should be removed
     if(mouseButton == RIGHT)
     {
@@ -154,7 +152,6 @@ void mouseClicked()
         }
     }
     
-//>>>>>>> origin/master
     // Check for clicking on togglegate
     for(LogicGate g : Gates)
     {
@@ -163,11 +160,8 @@ void mouseClicked()
             if((ToggleGate)g != null && IsWithin(mouseX, mouseY, g.Position.x, g.Position.y, 50, 50))
                 ((ToggleGate)g).Value = !((ToggleGate)g).Value;
         }
-//<<<<<<< HEAD
         catch(Exception e) {println("ERROR");}
         //return;
-//=======
-//>>>>>>> origin/master
     }
 }
 void mouseMoved()
