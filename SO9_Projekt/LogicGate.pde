@@ -19,6 +19,19 @@ public abstract class LogicGate
     public abstract void Draw();
     public abstract void Update();
     public abstract boolean AddInput(Node in);
+    public ArrayList<Node> GetInputChain()
+    {
+        ArrayList<Node> buffer = new ArrayList<Node>();
+        buffer.addAll(Inputs);
+        
+        for(Node input : buffer)
+        {
+            if(input != null && input._parent != null)
+                buffer.addAll(input._parent.GetInputChain());
+        }
+        
+        return buffer;
+    }
 }
 
 public boolean CanPlaceGate(float x, float y)
@@ -360,7 +373,7 @@ public class ToggleGate extends LogicGate
 public class Node
 {
     // Variables
-    private LogicGate _parent = null;
+    public LogicGate _parent = null;
     PVector Position;
     
     // Constructors

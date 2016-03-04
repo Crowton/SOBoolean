@@ -118,6 +118,18 @@ void mouseClicked()
         {
             if(g.Output.Clicked(mouseX, mouseY))
             {
+                /*
+                ArrayList<Node>  chain = g.GetInputChain(); 
+                println("Input chain with " + chain.size() + " nodes");
+                // Check for circle of death
+                for(Node n : chain)
+                {
+                    println(n);
+                    if(n == CurrentOutput)
+                        return;
+                }
+                */
+                
                 g.AddInput(CurrentOutput);
                 CurrentOutput = null;
                 println("click on node");
